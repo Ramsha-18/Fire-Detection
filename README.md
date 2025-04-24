@@ -1,57 +1,68 @@
-Fire-Detection
-Overview
-Fire-Detection is a robust AI-powered solution designed for real-time fire detection using advanced computer vision techniques. This repository utilizes the YOLO (You Only Look Once) algorithm to accurately identify fire in various environments. The project aims to provide a reliable method for early fire detection to enhance safety and prevent fire-related disasters.
 
-Features
-Real-time Fire Detection: Leverages YOLO for high-speed, accurate fire detection.
-Customizable Models: Adaptable to different environments and fire scenarios.
-Easy Integration: Compatible with various systems for seamless deployment.
-Alert System: Configurable to trigger alerts for immediate action.
-Open Source: Encourages community contributions and improvements.
-Installation
-To set up the Fire-Detection project, follow these steps:
 
-Clone the repository:
+---
 
-bash
-Copy code
+# 🔥 Fire-Detection
+
+**Fire-Detection** is an AI-powered solution for real-time fire detection using advanced computer vision techniques. Built on **YOLOv8 (You Only Look Once)**, this system provides fast and accurate detection of fire in diverse environments. It is designed for early alerting to enhance safety and prevent potential fire disasters.
+
+---
+
+## 🚀 Features
+
+- **Real-time Detection** – High-speed inference using YOLOv8.
+- **Customizable Models** – Easily trainable for different fire scenarios.
+- **Easy Integration** – Compatible with various systems for seamless deployment.
+- **Alert System** – Configurable alerts to enable prompt response.
+- **Open Source** – Community contributions are welcome to improve the system.
+
+---
+
+## 🛠️ Installation
+
+Follow these steps to set up the project:
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/Ramsha-18/ultralytics.git
-Navigate to the project directory:
-
-bash
-Copy code
 cd ultralytics/Fire-Detection
-Install the required dependencies:
+```
 
-bash
-Copy code
+### 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-Download the YOLOv8 model:
+```
 
-bash
-Copy code
+### 3. Download YOLOv8 Model Weights
+
+```bash
 wget https://github.com/ultralytics/yolov8/releases/download/v8.0/yolov8n.pt
-Usage
-You can use Fire-Detection both from the command line and within a Python environment.
+```
 
-Command Line Interface (CLI)
-Run the YOLO model on an input video:
+---
 
-bash
-Copy code
+## 🎬 Usage
+
+### 🔹 Command Line Interface (CLI)
+
+Run YOLOv8 on an input video:
+
+```bash
 yolo predict model=yolov8n.pt source='path_to_video.mp4'
-Python
-Use the model in a Python script:
+```
 
-python
-Copy code
+### 🔹 Python Script
+
+```python
 import cv2
 from ultralytics import YOLO
 
 # Load the YOLOv8 model
 model = YOLO('yolov8n.pt')
 
-# Open the video file
+# Open the video source
 cap = cv2.VideoCapture('path_to_video.mp4')
 
 while cap.isOpened():
@@ -59,10 +70,10 @@ while cap.isOpened():
     if not ret:
         break
 
-    # Run YOLO inference
+    # Perform inference
     results = model(frame)
 
-    # Visualize results
+    # Display results
     annotated_frame = results[0].plot()
     cv2.imshow('Fire Detection', annotated_frame)
 
@@ -71,20 +82,44 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
-Model Training
-To train the YOLO model on a custom dataset, follow the instructions below:
+```
 
-Prepare your dataset: Ensure your dataset is annotated and organized in YOLO format.
-Modify the configuration: Adjust the model and data configurations as required.
-Train the model:
-bash
-Copy code
+---
+
+## 🧠 Training on a Custom Dataset
+
+1. **Prepare Your Dataset**
+   - Annotate and format your dataset in YOLO format.
+
+2. **Edit Config Files**
+   - Modify the model config (`.yaml`) and dataset config (`your_dataset.yaml`) accordingly.
+
+3. **Train the Model**
+
+```bash
 yolo train model=yolov8n.yaml data=your_dataset.yaml epochs=50
-Contributing
-Contributions to the Fire-Detection project are welcome! Feel free to open issues, submit pull requests, or suggest new features.
+```
 
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+---
 
-Acknowledgments
-Special thanks to the Ultralytics team for their continuous efforts in developing and maintaining the YOLO series. For more details and resources, visit the Ultralytics GitHub page.
+## 🤝 Contributing
+
+We welcome community contributions!  
+Feel free to:
+- Submit pull requests
+- Open issues for bugs or suggestions
+- Share improvements and features
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## 🙏 Acknowledgments
+
+Thanks to the amazing team at [Ultralytics](https://github.com/ultralytics) for their efforts in building and maintaining the YOLO series.
+
+---
